@@ -81,7 +81,14 @@ for selected_id in selected_ids:
 
 #The total cost of all shopping cart items (i.e. the "subtotal"), formatted as US dollars and cents (e.g. $19.47), calculated as the sum of their prices
 
+money = float(total_price)
 print("SUBTOTAL: " + str(total_price))
+
+#This was my attempt to enact currency format with dollars signs for my strings. did not work. WIll ask at office hours. 
+
+#https://stackabuse.com/format-number-as-currency-string-in-python
+#currency_string = "${:,.2f}".format(total_price)
+#print(total_price)
 
 #The amount of tax owed (e.g. $1.70), calculated by multiplying the total cost by a New York City sales tax rate of 8.75% (for the purposes of this project, groceries are not exempt from sales tax)
 
@@ -91,10 +98,9 @@ print("Sales Tax for this sale is equal to:" , (saletax))
 #The total amount owed, formatted as US dollars and cents (e.g. $21.17), calculated by adding together the amount of tax owed plus the total cost of all shopping cart items
 print("Grand Total:" , (total_price+saletax))
 
-
-
-
+#A friendly message thanking the customer and/or encouraging the customer to shop again
+print("--~--~--~--~--")
+print("Get that Bread! Thank you for Shopping at Ry's.")
+print("--~--~--~--~--")
 
 #The name and price of each shopping cart item, price being formatted as US dollars and cents (e.g. $3.50, etc.)
-
-#A friendly message thanking the customer and/or encouraging the customer to shop again
