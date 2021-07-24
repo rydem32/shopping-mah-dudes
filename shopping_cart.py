@@ -59,10 +59,42 @@ while True:
 
 #info display / output
 
+#A grocery store name of your choice
+print("--~--~--~--~--")
+print("Welcome to Ry Bread Corner Store")
+print("--~--~--~--~--")
+#A grocery store phone number and/or website URL and/or address of choice
+print("414 Marcellus Road, Mineola New York, 11501")
+print("516-766-4200")
+print("www.rybread.gov")
+print("--~--~--~--~--")
+
+print("You selected", len(selected_id), "items." "Here is your receipt!")
+#The date and time of the beginning of the checkout process, formatted in a human-friendly way (e.g. 2020-02-07 03:54 PM)
+
+
 for selected_id in selected_ids:
     matching_products = [p for p in products if str(p["id"]) == str(selected_id)]
     matching_product = matching_products[0]
     total_price = total_price + matching_product["price"]
     print("SELECTED PRODUCT: " + matching_product["name"] + " " + str(matching_product["price"]))
 
-print("TOTAL PRICE: " + str(total_price))
+#The total cost of all shopping cart items (i.e. the "subtotal"), formatted as US dollars and cents (e.g. $19.47), calculated as the sum of their prices
+
+print("SUBTOTAL: " + str(total_price))
+
+#The amount of tax owed (e.g. $1.70), calculated by multiplying the total cost by a New York City sales tax rate of 8.75% (for the purposes of this project, groceries are not exempt from sales tax)
+
+saletax = float(total_price*.0875)
+print("Sales Tax for this sale is equal to:" , (saletax))
+
+#The total amount owed, formatted as US dollars and cents (e.g. $21.17), calculated by adding together the amount of tax owed plus the total cost of all shopping cart items
+print("Grand Total:" , (total_price+saletax))
+
+
+
+
+
+#The name and price of each shopping cart item, price being formatted as US dollars and cents (e.g. $3.50, etc.)
+
+#A friendly message thanking the customer and/or encouraging the customer to shop again
