@@ -34,6 +34,19 @@ def to_usd(my_price):
     """
     return f"${my_price:,.2f}" #> $12,000.71
 
+#date and time 
+#https://www.programiz.com/python-programming/datetime/current-datetime
+from datetime import datetime
+
+# datetime object containing current date and time
+now = datetime.now()
+ 
+print("now =", now)
+
+# dd/mm/YY H:M:S
+dt_string = now.strftime("%d/%m/%Y %H:%M:%S")
+#print("date and time =", dt_string)	
+
 
 # TODO: write some Python code here to produce the desired output
 
@@ -46,7 +59,7 @@ selected_ids = []
 
 
 while True:
-        selected_id = input("Please input a Product Identifier: ")
+        selected_id = input("Please input a Product Identifier, or type DONE:")
         
         if selected_id == "DONE":
                 break
@@ -69,6 +82,10 @@ print("414 Marcellus Road, Mineola New York, 11501")
 print("516-766-4200")
 print("www.rybread.gov")
 print("--~--~--~--~--")
+print("Checkout at:", dt_string)
+print("--~--~--~--~--")
+
+
 
 print("You selected", len(selected_id), "items." "Here is your receipt!")
 #The date and time of the beginning of the checkout process, formatted in a human-friendly way (e.g. 2020-02-07 03:54 PM)
@@ -78,12 +95,12 @@ for selected_id in selected_ids:
     matching_products = [p for p in products if str(p["id"]) == str(selected_id)]
     matching_product = matching_products[0]
     total_price = total_price + matching_product["price"]
-    print("SELECTED PRODUCT: " + matching_product["name"] + " " + str(matching_product["price"]))
+    print("SELECTED PRODUCT: " + matching_product["name"] + " " + str('${:,.2f}'.format(matching_product["price"])))
 
 #The total cost of all shopping cart items (i.e. the "subtotal"), formatted as US dollars and cents (e.g. $19.47), calculated as the sum of their prices
 
 money = float(total_price)
-print("SUBTOTAL: " + str(total_price))
+print("SUBTOTAL: " + str('${:,.2f}'.format(total_price)))
 
 #This was my attempt to enact currency format with dollars signs for my strings. did not work. WIll ask at office hours. 
 
@@ -94,10 +111,11 @@ print("SUBTOTAL: " + str(total_price))
 #The amount of tax owed (e.g. $1.70), calculated by multiplying the total cost by a New York City sales tax rate of 8.75% (for the purposes of this project, groceries are not exempt from sales tax)
 
 saletax = float(total_price*.0875)
-print("Sales Tax for this sale is equal to:" , (saletax))
+print("Sales Tax for this sale is equal to:" ,'${:,.2f}'.format(saletax))
+
 
 #The total amount owed, formatted as US dollars and cents (e.g. $21.17), calculated by adding together the amount of tax owed plus the total cost of all shopping cart items
-print("Grand Total:" , (total_price+saletax))
+print("Grand Total:" ,'${:,.2f}'.format(total_price+saletax))
 
 #A friendly message thanking the customer and/or encouraging the customer to shop again
 print("--~--~--~--~--")
