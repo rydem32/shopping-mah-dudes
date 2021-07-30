@@ -44,6 +44,7 @@ def to_usd(my_price):
 total_price = 0
 selected_ids = []
 
+
 while True:
         selected_id = input("Please input a Product Identifier: ")
         
